@@ -798,6 +798,17 @@ if(!String.prototype.format) {
 			self.view(view);
 		});
 
+        $('.cal-month-day').hover(function() {
+          $('.planAddEvent').not($(this).children('.planAddEvent')).popover('hide')
+          $(this).children('.planAddEvent').removeClass('hide')
+        }, function() {
+          $(this).children('.planAddEvent').addClass('hide')
+        });
+
+        $('.cal-month-day .planAddEvent').click(function(e) {
+          e.preventDefault();
+        });
+
 		this['_update_' + this.options.view]();
 
 		this._update_modal();
